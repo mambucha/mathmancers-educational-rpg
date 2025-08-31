@@ -1,0 +1,1681 @@
+/* Імпорт магічних шрифтів для MathMancers */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Orbitron:wght@400;500;700&display=swap');
+@import 'tailwindcss';
+
+/* Конфігурація теми для MathMancers */
+@theme {
+  /* Палітра "Спадщина Arithmancer" */
+  --color-sanctum-dark: #0a0612; /* Глибокий космічний фіолетовий */
+  --color-sanctum-medium: #1a1028; /* Середні тони */
+  --color-sanctum-light: #e8d5c7; /* Теплий пергамент */
+  --color-sanctum-accent: #ffd700; /* Золото мудрості */
+  --color-mystical-blue: #4a90e2; /* Магічний синій */
+  --color-heritage-purple: #7b68ee; /* Спадкова магія */
+  --color-energy-warm: #ff6b35; /* Тепла енергія заклинань */
+  --color-warning-amber: #ffb347; /* Попереджувальний бурштин */
+  --color-chaos-red: #dc143c; /* Колір Хаосу Обчислень */
+  --color-crystal-cyan: #00ffff; /* Кристалічний ціан */
+
+  /* Шрифти для містичної атмосфери */
+  --font-family-title: 'Cinzel', serif; /* Для заголовків та назв */
+  --font-family-text: 'Crimson Text', serif; /* Для основного тексту */
+  --font-family-tech: 'Orbitron', monospace; /* Для "цифрової" магії */
+
+  /* Магічні тіні та свічення */
+  --shadow-mystical-glow: 0 0 30px rgba(255, 215, 0, 0.4);
+  --shadow-chaos-glow: 0 0 25px rgba(220, 20, 60, 0.3);
+  --shadow-crystal-glow: 0 0 20px rgba(0, 255, 255, 0.3);
+  --shadow-depth: 0 8px 32px rgba(10, 6, 18, 0.6);
+}
+
+/* Базові стилі для магічної атмосфери */
+@layer base {
+  body {
+    background: #0a0612;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(123, 104, 238, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, rgba(74, 144, 226, 0.06) 0%, transparent 45%),
+      linear-gradient(135deg, transparent 0%, rgba(26, 16, 40, 0.3) 50%, transparent 100%);
+    font-family: 'Crimson Text', serif;
+    color: #e8d5c7;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* Кастомний скролбар */
+  *::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: rgba(26, 16, 40, 0.3);
+    border-radius: 4px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #ffd700, #ff6b35);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #ff6b35, #ffd700);
+  }
+
+  /* Firefox scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #ffd700 rgba(26, 16, 40, 0.3);
+  }
+}
+
+/* Компоненти MathMancers */
+@layer components {
+  /* === ДОМАШНЯ СТОРІНКА АВТОРИЗАЦІЇ === */
+  .mathmancers-home {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    overflow: hidden;
+  }
+
+  /* Магічні частинки математики в фоні */
+  .cosmic-equations {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .floating-equation {
+    position: absolute;
+    opacity: 0.1;
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(1rem, 2vw, 2rem);
+    color: var(--color, #ffd700);
+    animation: equationFloat var(--duration, 25s) var(--delay, 0s) infinite linear;
+    text-shadow: 0 0 10px currentColor;
+  }
+
+  @keyframes equationFloat {
+    0% {
+      transform: translateY(110vh) translateX(0) rotate(0deg) scale(0.8);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.1;
+    }
+    50% {
+      opacity: 0.15;
+    }
+    90% {
+      opacity: 0.1;
+    }
+    100% {
+      transform: translateY(-10vh) translateX(100px) rotate(360deg) scale(1.2);
+      opacity: 0;
+    }
+  }
+
+  /* Космічні руни та символи */
+  .astral-runes {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .cosmic-rune {
+    position: absolute;
+    opacity: 0.08;
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.5rem, 4vw, 4rem);
+    color: var(--color, #7b68ee);
+    animation: runeOrbit var(--duration, 30s) var(--delay, 0s) infinite ease-in-out;
+    text-shadow: 0 0 15px currentColor;
+  }
+
+  @keyframes runeOrbit {
+    0%,
+    100% {
+      transform: rotate(0deg) translateY(-50px) rotate(0deg) scale(0.9);
+      opacity: 0.05;
+    }
+    25% {
+      transform: rotate(90deg) translateY(-30px) rotate(-90deg) scale(1.1);
+      opacity: 0.12;
+    }
+    50% {
+      transform: rotate(180deg) translateY(-70px) rotate(-180deg) scale(1);
+      opacity: 0.08;
+    }
+    75% {
+      transform: rotate(270deg) translateY(-40px) rotate(-270deg) scale(1.1);
+      opacity: 0.12;
+    }
+  }
+
+  /* Головний логотип гри */
+  .game-logo {
+    text-align: center;
+    margin-bottom: clamp(2rem, 5vh, 4rem);
+    z-index: 10;
+    position: relative;
+  }
+
+  .game-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 700;
+    color: #ffd700;
+    text-shadow:
+      0 0 20px rgba(255, 215, 0, 0.6),
+      0 0 40px rgba(255, 215, 0, 0.4),
+      0 0 60px rgba(255, 215, 0, 0.2);
+    margin-bottom: 1rem;
+    animation: titlePulse 4s infinite ease-in-out;
+    letter-spacing: 2px;
+  }
+
+  @keyframes titlePulse {
+    0%,
+    100% {
+      text-shadow:
+        0 0 20px rgba(255, 215, 0, 0.6),
+        0 0 40px rgba(255, 215, 0, 0.4),
+        0 0 60px rgba(255, 215, 0, 0.2);
+    }
+    50% {
+      text-shadow:
+        0 0 30px rgba(255, 215, 0, 0.8),
+        0 0 60px rgba(255, 215, 0, 0.6),
+        0 0 90px rgba(255, 215, 0, 0.3);
+    }
+  }
+
+  .game-subtitle {
+    font-family: 'Crimson Text', serif;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    color: #7b68ee;
+    font-style: italic;
+    text-shadow: 0 0 15px rgba(123, 104, 238, 0.5);
+    margin-bottom: 0.5rem;
+  }
+
+  .game-tagline {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(0.875rem, 2vw, 1.125rem);
+    color: #4a90e2;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.9;
+  }
+
+  /* Контейнер для форм */
+  .auth-realm {
+    display: flex;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 1200px;
+    width: 100%;
+    z-index: 10;
+    position: relative;
+  }
+
+  /* Базові стилі для магічних панелей */
+  .spell-panel {
+    position: relative;
+    background: linear-gradient(
+      145deg,
+      rgba(26, 16, 40, 0.9) 0%,
+      rgba(10, 6, 18, 0.95) 50%,
+      rgba(26, 16, 40, 0.9) 100%
+    );
+    border: 2px solid transparent;
+    border-radius: 20px;
+    padding: 2.5rem;
+    min-width: 350px;
+    max-width: 400px;
+    backdrop-filter: blur(20px);
+    box-shadow:
+      var(--shadow-depth),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+  }
+
+  .spell-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 2px;
+    background: linear-gradient(45deg, #ffd700, #7b68ee, #4a90e2, #ff6b35, #ffd700);
+    background-size: 400% 400%;
+    animation: borderFlow 8s ease infinite;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: exclude;
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+  }
+
+  @keyframes borderFlow {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .spell-panel:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow:
+      var(--shadow-depth),
+      0 20px 40px rgba(255, 215, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  /* Заголовки панелей */
+  .panel-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #ffd700;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    position: relative;
+  }
+
+  .panel-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ffd700, transparent);
+    animation: titleUnderline 3s infinite ease-in-out;
+  }
+
+  @keyframes titleUnderline {
+    0%,
+    100% {
+      opacity: 0.6;
+      width: 60px;
+    }
+    50% {
+      opacity: 1;
+      width: 80px;
+    }
+  }
+
+  /* Стилі для полів вводу */
+  .mystical-input {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    margin-bottom: 0;
+    background: rgba(10, 6, 18, 0.8);
+    border: 2px solid rgba(123, 104, 238, 0.3);
+    border-radius: 12px;
+    color: #e8d5c7;
+    font-family: 'Crimson Text', serif;
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+  }
+
+  .mystical-input:focus {
+    outline: none;
+    border-color: #ffd700;
+    background: rgba(10, 6, 18, 0.9);
+    box-shadow:
+      inset 0 2px 4px rgba(0, 0, 0, 0.3),
+      0 0 15px rgba(255, 215, 0, 0.3),
+      0 0 25px rgba(255, 215, 0, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .mystical-input::placeholder {
+    color: rgba(232, 213, 199, 0.4);
+    font-style: italic;
+    transition: all 0.3s ease;
+  }
+
+  .mystical-input:focus::placeholder {
+    color: rgba(232, 213, 199, 0.6);
+    transform: translateX(5px);
+  }
+
+  /* Стани валідації для полів */
+  .mystical-input.input-valid {
+    border-color: #00ff7f;
+    box-shadow:
+      inset 0 2px 4px rgba(0, 0, 0, 0.3),
+      0 0 15px rgba(0, 255, 127, 0.3);
+  }
+
+  .mystical-input.input-error {
+    border-color: #dc143c;
+    box-shadow:
+      inset 0 2px 4px rgba(0, 0, 0, 0.3),
+      0 0 15px rgba(220, 20, 60, 0.3);
+    animation: inputError 0.5s ease-out;
+  }
+
+  @keyframes inputError {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-5px);
+    }
+    75% {
+      transform: translateX(5px);
+    }
+  }
+
+  /* Магічні кнопки заклинань */
+  .spell-button {
+    width: 100%;
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+    background: linear-gradient(145deg, #ffd700 0%, #ff6b35 100%);
+    border: none;
+    border-radius: 12px;
+    color: #0a0612;
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow:
+      0 4px 15px rgba(255, 107, 53, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .spell-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .spell-button:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(145deg, #ff6b35 0%, #ffd700 100%);
+    box-shadow:
+      0 8px 25px rgba(255, 107, 53, 0.4),
+      0 0 20px rgba(255, 215, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+
+  .spell-button:hover::before {
+    opacity: 1;
+  }
+
+  .spell-button:active {
+    transform: translateY(-1px);
+  }
+
+  /* Іконки панелей */
+  .panel-icon {
+    display: block;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    animation: iconFloat 3s infinite ease-in-out;
+    filter: drop-shadow(0 0 10px currentColor);
+  }
+
+  @keyframes iconFloat {
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-10px) rotate(5deg);
+    }
+  }
+
+  /* Спеціальні стилі для панелі реєстрації */
+  .registration-panel {
+    --primary-color: #4a90e2;
+    --secondary-color: #00ffff;
+  }
+
+  .registration-panel .panel-title {
+    color: #4a90e2;
+    text-shadow: 0 0 20px rgba(74, 144, 226, 0.5);
+  }
+
+  .registration-panel .panel-title::after {
+    background: linear-gradient(90deg, transparent, #4a90e2, transparent);
+  }
+
+  .registration-panel .mystical-input:focus {
+    border-color: #4a90e2;
+    box-shadow:
+      inset 0 2px 4px rgba(0, 0, 0, 0.3),
+      0 0 15px rgba(74, 144, 226, 0.3);
+  }
+
+  .registration-panel .spell-button {
+    background: linear-gradient(145deg, #4a90e2 0%, #00ffff 100%);
+    box-shadow:
+      0 4px 15px rgba(74, 144, 226, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .registration-panel .spell-button:hover {
+    background: linear-gradient(145deg, #00ffff 0%, #4a90e2 100%);
+    box-shadow:
+      0 8px 25px rgba(74, 144, 226, 0.4),
+      0 0 20px rgba(0, 255, 255, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+
+  .registration-panel .panel-icon {
+    color: #4a90e2;
+  }
+
+  /* Спеціальні стилі для панелі входу */
+  .login-panel {
+    --primary-color: #ffd700;
+    --secondary-color: #ff6b35;
+  }
+
+  .login-panel .panel-icon {
+    color: #ffd700;
+  }
+
+  /* Адаптивність */
+  @media (max-width: 768px) {
+    .auth-realm {
+      flex-direction: column;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .spell-panel {
+      min-width: 300px;
+      max-width: 350px;
+      padding: 2rem;
+    }
+
+    .game-title {
+      font-size: 2.5rem;
+    }
+
+    .mathmancers-home {
+      padding: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .spell-panel {
+      min-width: 280px;
+      max-width: 320px;
+      padding: 1.5rem;
+    }
+
+    .panel-title {
+      font-size: 1.5rem;
+    }
+
+    .game-logo {
+      margin-bottom: 2rem;
+    }
+  }
+
+  /* Додаткові магічні ефекти */
+  .chaos-warning {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, #dc143c, #ff6b35);
+    border-radius: 50%;
+    animation: chaosWarning 2s infinite ease-in-out;
+    box-shadow: 0 0 15px rgba(220, 20, 60, 0.6);
+  }
+
+  @keyframes chaosWarning {
+    0%,
+    100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }
+
+  .soul-scribe-glow {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 215, 0, 0.6),
+      rgba(123, 104, 238, 0.6),
+      transparent
+    );
+    animation: soulScribeGlow 3s infinite ease-in-out;
+    border-radius: 2px;
+  }
+
+  @keyframes soulScribeGlow {
+    0%,
+    100% {
+      opacity: 0.4;
+      width: 100px;
+    }
+    50% {
+      opacity: 0.8;
+      width: 120px;
+    }
+  }
+
+  /* ===== СТИЛІ ДЛЯ СВЯТИЛИЩА (з попереднього файлу) ===== */
+  .sanctum-container {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    height: 100svh;
+    height: 100dvh;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 60%, rgba(123, 104, 238, 0.08) 0%, transparent 50%),
+      linear-gradient(165deg, #0a0612 0%, #1a1028 50%, #0a0612 100%);
+  }
+
+  .sanctum-content-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(0.5rem, 2vh, 1rem);
+    z-index: 10;
+    height: 100vh;
+    height: 100svh;
+    height: 100dvh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .sanctum-main {
+    width: 100%;
+    max-width: 56rem;
+    max-height: calc(100vh - 2rem);
+    max-height: calc(100svh - 2rem);
+    max-height: calc(100dvh - 2rem);
+    overflow-y: auto;
+    padding: 0.5rem;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Магічні частинки (оновлені кольори) */
+  .mystical-particles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .mystical-particle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.2;
+    width: var(--size, 3px);
+    height: var(--size, 3px);
+    background: radial-gradient(circle, var(--color, #ffd700) 0%, transparent 70%);
+    animation: mysticalFloat var(--duration, 15s) var(--delay, 0s) infinite linear;
+  }
+
+  @keyframes mysticalFloat {
+    0% {
+      transform: translateY(110vh) translateX(0) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.2;
+    }
+    90% {
+      opacity: 0.2;
+    }
+    100% {
+      transform: translateY(-10vh) translateX(50px) rotate(180deg);
+      opacity: 0;
+    }
+  }
+
+  .floating-runes {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .floating-rune {
+    position: absolute;
+    opacity: 0.1;
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    color: var(--color, #ffd700);
+    animation: runeFloat 20s infinite ease-in-out;
+    animation-delay: var(--delay, 0s);
+  }
+
+  @keyframes runeFloat {
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg) scale(0.8);
+      opacity: 0.05;
+    }
+    50% {
+      transform: translateY(-30px) rotate(15deg) scale(1.1);
+      opacity: 0.15;
+    }
+  }
+
+  /* Оновлені стилі для святилища з новою палітрою */
+  .sanctum-title {
+    font-size: clamp(1.5rem, 4vh, 2.25rem);
+    text-align: center;
+    margin-bottom: clamp(0.5rem, 1vh, 0.75rem);
+    font-family: 'Cinzel', serif;
+    color: #ffd700;
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+    animation: titleBreathing 4s infinite ease-in-out;
+  }
+
+  @keyframes titleBreathing {
+    0%,
+    100% {
+      text-shadow:
+        0 0 30px rgba(255, 215, 0, 0.4),
+        0 0 60px rgba(255, 215, 0, 0.2);
+    }
+    50% {
+      text-shadow:
+        0 0 40px rgba(255, 215, 0, 0.6),
+        0 0 80px rgba(255, 215, 0, 0.3);
+    }
+  }
+
+  .sanctum-subtitle {
+    font-size: clamp(0.875rem, 2vh, 1.125rem);
+    text-align: center;
+    margin-bottom: clamp(1rem, 2vh, 1.5rem);
+    font-family: 'Crimson Text', serif;
+    color: #e8d5c7;
+  }
+
+  .sanctum-welcome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: clamp(1rem, 2vh, 2rem);
+  }
+
+  .heritage-avatar {
+    position: relative;
+  }
+
+  .avatar-orb {
+    width: clamp(2.5rem, 5vh, 3rem);
+    height: clamp(2.5rem, 5vh, 3rem);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(1rem, 2.5vh, 1.25rem);
+    position: relative;
+    background: linear-gradient(135deg, #ffd700 0%, #7b68ee 100%);
+    animation: orbPulse 3s infinite ease-in-out;
+  }
+
+  .avatar-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid;
+    opacity: 0.3;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-color: #ffd700;
+    animation: ringRotate 8s linear infinite;
+  }
+
+  @keyframes orbPulse {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes ringRotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .heritage-name {
+    font-size: clamp(0.875rem, 2vh, 1.125rem);
+    font-family: 'Cinzel', serif;
+    color: #ff6b35;
+    text-shadow: 0 0 15px rgba(255, 107, 53, 0.4);
+  }
+
+  /* Панель мудрості з оновленими кольорами */
+  .wisdom-panel {
+    position: relative;
+    margin-bottom: clamp(0.5rem, 2vh, 1.5rem);
+    padding: clamp(1rem, 3vh, 1.5rem);
+    border-radius: 0.75rem;
+    background: rgba(26, 16, 40, 0.6);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-depth);
+  }
+
+  .wisdom-panel::before {
+    content: '';
+    position: absolute;
+    border-radius: 0.75rem;
+    opacity: 0.5;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+    z-index: -1;
+    animation: panelShimmer 6s infinite ease-in-out;
+  }
+
+  @keyframes panelShimmer {
+    0%,
+    100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+
+  .wisdom-header {
+    text-align: center;
+    margin-bottom: clamp(0.75rem, 2vh, 1.5rem);
+  }
+
+  .wisdom-title {
+    font-size: clamp(1.125rem, 3vh, 1.5rem);
+    margin-bottom: clamp(0.25rem, 1vh, 0.5rem);
+    font-family: 'Cinzel', serif;
+    color: #7b68ee;
+    text-shadow: 0 0 20px rgba(123, 104, 238, 0.4);
+  }
+
+  .ancient-divider {
+    width: clamp(4rem, 15vw, 6rem);
+    height: 1px;
+    margin: 0 auto;
+    background: linear-gradient(90deg, transparent, #ffd700, transparent);
+    animation: dividerGlow 3s infinite ease-in-out alternate;
+  }
+
+  @keyframes dividerGlow {
+    from {
+      box-shadow: 0 0 5px #ffd700;
+    }
+    to {
+      box-shadow: 0 0 15px #ffd700;
+    }
+  }
+
+  .wisdom-grid {
+    display: grid;
+    gap: clamp(0.5rem, 1.5vh, 1rem);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .stat-crystal {
+    position: relative;
+    padding: clamp(0.75rem, 2vh, 1rem);
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+    background: rgba(10, 6, 18, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+  }
+
+  .stat-crystal:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 215, 0, 0.3);
+    box-shadow: var(--shadow-mystical-glow);
+  }
+
+  .stat-crystal::after {
+    content: '';
+    position: absolute;
+    border-radius: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(123, 104, 238, 0.1));
+    z-index: -1;
+  }
+
+  .stat-crystal:hover::after {
+    opacity: 1;
+  }
+
+  .stat-icon-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: clamp(0.25rem, 1vh, 0.5rem);
+  }
+
+  .stat-mystical-icon {
+    font-size: clamp(1.125rem, 2.5vh, 1.5rem);
+    filter: drop-shadow(0 0 8px currentColor);
+    animation: iconGlow 2s infinite ease-in-out alternate;
+  }
+
+  @keyframes iconGlow {
+    from {
+      filter: drop-shadow(0 0 8px currentColor);
+    }
+    to {
+      filter: drop-shadow(0 0 15px currentColor);
+    }
+  }
+
+  .stat-label {
+    font-size: clamp(0.75rem, 1.5vh, 0.875rem);
+    opacity: 0.8;
+    color: #e8d5c7;
+    font-family: 'Crimson Text', serif;
+  }
+
+  .stat-value {
+    font-size: clamp(1rem, 2.5vh, 1.25rem);
+    font-weight: 600;
+    font-family: 'Cinzel', serif;
+  }
+
+  /* Оновлені кольори статистик */
+  .level-crystal {
+    color: #ff6b35;
+  }
+  .experience-crystal {
+    color: #4a90e2;
+  }
+  .health-crystal {
+    color: #dc143c;
+  }
+
+  .power-crystal {
+    color: #ffd700;
+    grid-column: 1 / -1;
+    background: rgba(255, 215, 0, 0.05);
+  }
+
+  .power-value {
+    font-size: clamp(1.5rem, 4vh, 1.875rem);
+    text-shadow: 0 0 20px currentColor;
+    animation: powerPulse 2s infinite ease-in-out alternate;
+  }
+
+  @keyframes powerPulse {
+    from {
+      text-shadow: 0 0 20px currentColor;
+    }
+    to {
+      text-shadow:
+        0 0 30px currentColor,
+        0 0 40px currentColor;
+    }
+  }
+
+  .essence-bar {
+    width: 100%;
+    height: clamp(0.25rem, 1vh, 0.375rem);
+    margin-top: clamp(0.25rem, 1vh, 0.5rem);
+    border-radius: 9999px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .essence-fill {
+    height: 100%;
+    border-radius: 9999px;
+    position: relative;
+    background: linear-gradient(90deg, currentColor, rgba(255, 255, 255, 0.8));
+    transition: width 1s ease;
+  }
+
+  .essence-fill::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: essenceShine 2s infinite;
+  }
+
+  @keyframes essenceShine {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .power-constellation {
+    display: flex;
+    justify-content: center;
+    gap: 0.25rem;
+    margin-top: clamp(0.25rem, 1vh, 0.5rem);
+  }
+
+  .power-star {
+    width: clamp(0.25rem, 1vh, 0.375rem);
+    height: clamp(0.25rem, 1vh, 0.375rem);
+    border-radius: 50%;
+    background: linear-gradient(45deg, currentColor, rgba(255, 255, 255, 0.6));
+    animation: starTwinkle calc(1s + var(--delay, 0s)) infinite ease-in-out alternate;
+  }
+
+  @keyframes starTwinkle {
+    from {
+      opacity: 0.4;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Кнопка битви з новими кольорами */
+  .battle-nexus {
+    display: flex;
+    justify-content: center;
+    margin-top: clamp(1rem, 3vh, 2rem);
+  }
+
+  .arithmancer-seal {
+    position: relative;
+    display: block;
+    padding: clamp(0.75rem, 2vh, 1rem) clamp(1.5rem, 4vh, 2rem);
+    border-radius: 0.75rem;
+    transition: all 0.3s;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(123, 104, 238, 0.1));
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    box-shadow:
+      0 0 20px rgba(255, 215, 0, 0.2),
+      inset 0 0 20px rgba(255, 215, 0, 0.05);
+    text-decoration: none;
+  }
+
+  .arithmancer-seal:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 215, 0, 0.6);
+    box-shadow:
+      0 6px 20px rgba(255, 215, 0, 0.3),
+      inset 0 0 30px rgba(255, 215, 0, 0.1);
+  }
+
+  .seal-content {
+    text-align: center;
+  }
+
+  .seal-symbol {
+    font-size: clamp(1.25rem, 3vh, 1.5rem);
+    margin-bottom: 0.25rem;
+    display: block;
+    animation: sealPulse 2s infinite ease-in-out;
+  }
+
+  @keyframes sealPulse {
+    0%,
+    100% {
+      transform: scale(1) rotate(0deg);
+    }
+    50% {
+      transform: scale(1.1) rotate(5deg);
+    }
+  }
+
+  .seal-text {
+    font-size: clamp(0.875rem, 2vh, 1.125rem);
+    font-weight: 600;
+    font-family: 'Cinzel', serif;
+    color: #ffd700;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    letter-spacing: 1px;
+  }
+
+  .seal-whisper {
+    font-size: clamp(0.625rem, 1.5vh, 0.75rem);
+    opacity: 0.7;
+    margin-top: 0.25rem;
+    font-family: 'Crimson Text', serif;
+    color: #e8d5c7;
+  }
+
+  /* Стилі завантаження з оновленими кольорами */
+  .sanctum-loading {
+    text-align: center;
+  }
+
+  .loading-constellation {
+    width: clamp(3rem, 8vh, 4rem);
+    height: clamp(3rem, 8vh, 4rem);
+    margin: 0 auto clamp(0.75rem, 2vh, 1rem) auto;
+    position: relative;
+  }
+
+  .constellation-star {
+    position: absolute;
+    width: clamp(0.375rem, 1vh, 0.5rem);
+    height: clamp(0.375rem, 1vh, 0.5rem);
+    border-radius: 50%;
+    background: radial-gradient(circle, #ffd700 0%, rgba(255, 215, 0, 0.1) 70%);
+    animation: constellationTwinkle 2s infinite ease-in-out;
+  }
+
+  .constellation-star:nth-child(1) {
+    top: 0;
+    left: 50%;
+    animation-delay: 0s;
+  }
+  .constellation-star:nth-child(2) {
+    top: 25%;
+    right: 0;
+    animation-delay: 0.3s;
+  }
+  .constellation-star:nth-child(3) {
+    bottom: 25%;
+    right: 0;
+    animation-delay: 0.6s;
+  }
+  .constellation-star:nth-child(4) {
+    bottom: 0;
+    left: 50%;
+    animation-delay: 0.9s;
+  }
+  .constellation-star:nth-child(5) {
+    bottom: 25%;
+    left: 0;
+    animation-delay: 1.2s;
+  }
+  .constellation-star:nth-child(6) {
+    top: 25%;
+    left: 0;
+    animation-delay: 1.5s;
+  }
+
+  @keyframes constellationTwinkle {
+    0%,
+    100% {
+      opacity: 0.3;
+      transform: translate(-50%, -50%) scale(0.8);
+    }
+    50% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+  }
+
+  .loading-inscription {
+    font-size: clamp(0.875rem, 2vh, 1rem);
+    font-family: 'Crimson Text', serif;
+    color: #ffd700;
+    animation: inscriptionFade 2s infinite ease-in-out alternate;
+  }
+
+  @keyframes inscriptionFade {
+    from {
+      opacity: 0.6;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* === СТИЛІ ДЛЯ ФОРМ === */
+
+  /* М'які стилі для полів вводу - БЕЗ !important */
+  .registration-form input[type='text'],
+  .registration-form input[type='email'],
+  .registration-form input[type='password'],
+  .login-form input[type='text'],
+  .login-form input[type='email'],
+  .login-form input[type='password'] {
+    background: rgba(10, 6, 18, 0.8);
+    border: 2px solid rgba(123, 104, 238, 0.3);
+    border-radius: 12px;
+    color: #e8d5c7;
+    font-family: 'Crimson Text', serif;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .registration-form input:focus,
+  .login-form input:focus {
+    outline: none;
+    border-color: #ffd700;
+    background: rgba(10, 6, 18, 0.9);
+    box-shadow:
+      inset 0 2px 4px rgba(0, 0, 0, 0.3),
+      0 0 15px rgba(255, 215, 0, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .registration-form input::placeholder,
+  .login-form input::placeholder {
+    color: rgba(232, 213, 199, 0.4);
+    font-style: italic;
+  }
+
+  /* М'які стилі для кнопок - БЕЗ !important */
+  .registration-form button,
+  .login-form button {
+    background: linear-gradient(145deg, #ffd700 0%, #ff6b35 100%);
+    border: none;
+    border-radius: 12px;
+    color: #0a0612;
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow:
+      0 4px 15px rgba(255, 107, 53, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .registration-form button:hover,
+  .login-form button:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(145deg, #ff6b35 0%, #ffd700 100%);
+    box-shadow:
+      0 8px 25px rgba(255, 107, 53, 0.4),
+      0 0 20px rgba(255, 215, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+
+  /* Стилі для лейблів */
+  .registration-form label,
+  .login-form label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.875rem;
+    color: #7b68ee;
+    text-shadow: 0 0 8px rgba(123, 104, 238, 0.3);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  /* Контейнери форм */
+  .registration-form,
+  .login-form {
+    background: linear-gradient(
+      145deg,
+      rgba(26, 16, 40, 0.9) 0%,
+      rgba(10, 6, 18, 0.95) 50%,
+      rgba(26, 16, 40, 0.9) 100%
+    );
+    border: 2px solid transparent;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow:
+      0 8px 32px rgba(10, 6, 18, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .registration-form::before,
+  .login-form::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 2px;
+    background: linear-gradient(45deg, #ffd700, #7b68ee, #4a90e2, #ff6b35, #ffd700);
+    background-size: 400% 400%;
+    animation: borderFlow 8s ease infinite;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: exclude;
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  @keyframes borderFlow {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  /* Заголовки форм */
+  .registration-form h1,
+  .login-form h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #ffd700;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  }
+
+  /* Повідомлення помилок */
+  .registration-form .message,
+  .login-form .text-red-500 {
+    font-family: 'Crimson Text', serif;
+    font-size: 0.875rem;
+    color: #dc143c;
+    text-shadow: 0 0 8px rgba(220, 20, 60, 0.4);
+    text-align: center;
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: rgba(220, 20, 60, 0.1);
+    border: 1px solid rgba(220, 20, 60, 0.3);
+    border-radius: 8px;
+    animation: errorPulse 2s infinite ease-in-out;
+  }
+
+  @keyframes errorPulse {
+    0%,
+    100% {
+      opacity: 0.8;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  /* Успішні повідомлення */
+  .registration-form .message:not(.error) {
+    color: #00ff7f;
+    text-shadow: 0 0 8px rgba(0, 255, 127, 0.4);
+    background: rgba(0, 255, 127, 0.1);
+    border-color: rgba(0, 255, 127, 0.3);
+  }
+
+  /* Спеціальні стилі для реєстрації */
+  .registration-form button {
+    background: linear-gradient(145deg, #4a90e2 0%, #00ffff 100%);
+  }
+
+  .registration-form button:hover {
+    background: linear-gradient(145deg, #00ffff 0%, #4a90e2 100%);
+    box-shadow:
+      0 8px 25px rgba(74, 144, 226, 0.4),
+      0 0 20px rgba(0, 255, 255, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+
+  .registration-form h1 {
+    color: #4a90e2;
+    text-shadow: 0 0 20px rgba(74, 144, 226, 0.5);
+  }
+
+  /* Додаткові магічні елементи */
+  .registration-form .form-group,
+  .login-form .mb-3 {
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .registration-form .form-group::after,
+  .login-form .mb-3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ffd700, transparent);
+    transition: width 0.3s ease;
+  }
+
+  .registration-form .form-group:focus-within::after,
+  .login-form .mb-3:focus-within::after {
+    width: 100%;
+  }
+
+  /* Анімація появи форм */
+  @keyframes formMaterialize {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .registration-form,
+  .login-form {
+    animation: formMaterialize 0.8s ease-out;
+  }
+
+  /* === СТИЛІ ДЛЯ ФОРМ === */
+
+  /* Магічний чекбокс */
+  .mystical-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(123, 104, 238, 0.4);
+    border-radius: 4px;
+    background: rgba(10, 6, 18, 0.8);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .mystical-checkbox:checked {
+    border-color: #ffd700;
+    background: linear-gradient(45deg, #ffd700, #7b68ee);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+  }
+
+  .mystical-checkbox:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #0a0612;
+    font-size: 12px;
+    font-weight: bold;
+    animation: checkAppear 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  @keyframes checkAppear {
+    0% {
+      transform: translate(-50%, -50%) scale(0) rotate(45deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    }
+  }
+
+  .mystical-checkbox:hover {
+    border-color: #ffd700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+  }
+
+  /* Лейбли полів */
+  .field-rune {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.875rem;
+    color: #7b68ee;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 8px rgba(123, 104, 238, 0.3);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  /* Whispers помилок */
+  .error-whisper {
+    font-family: 'Crimson Text', serif;
+    font-size: 0.75rem;
+    color: #dc143c;
+    text-shadow: 0 0 8px rgba(220, 20, 60, 0.4);
+    animation: whisperAppear 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 0.5rem;
+  }
+
+  @keyframes whisperAppear {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Кастомні стилі кнопок */
+  .spell-button.academy-summon {
+    background: linear-gradient(145deg, #4a90e2 0%, #00ffff 100%);
+    box-shadow:
+      0 4px 15px rgba(74, 144, 226, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .spell-button.academy-summon:hover {
+    background: linear-gradient(145deg, #00ffff 0%, #4a90e2 100%);
+    box-shadow:
+      0 8px 25px rgba(74, 144, 226, 0.4),
+      0 0 20px rgba(0, 255, 255, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+
+  .spell-button.sanctum-return {
+    background: linear-gradient(145deg, #ffd700 0%, #ff6b35 100%);
+    box-shadow:
+      0 4px 15px rgba(255, 107, 53, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .spell-button.sanctum-return:hover {
+    background: linear-gradient(145deg, #ff6b35 0%, #ffd700 100%);
+    box-shadow:
+      0 8px 25px rgba(255, 107, 53, 0.4),
+      0 0 20px rgba(255, 215, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+
+  /* Анімація завантаження кнопки */
+  .button-casting {
+    animation: castingPulse 1.5s infinite ease-in-out;
+    cursor: not-allowed;
+  }
+
+  @keyframes castingPulse {
+    0%,
+    100% {
+      transform: translateY(-3px) scale(1);
+      box-shadow:
+        0 8px 25px rgba(255, 107, 53, 0.3),
+        0 0 20px rgba(255, 215, 0, 0.2);
+    }
+    50% {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow:
+        0 12px 35px rgba(255, 107, 53, 0.5),
+        0 0 30px rgba(255, 215, 0, 0.4);
+    }
+  }
+
+  /* Спінер завантаження */
+  .casting-spinner {
+    display: inline-block;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Посилання забули пароль */
+  .forgot-link {
+    background: none;
+    border: none;
+    color: #7b68ee;
+    font-family: 'Crimson Text', serif;
+    font-size: 0.875rem;
+    cursor: pointer;
+    text-decoration: underline;
+    opacity: 0.8;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .forgot-link:hover {
+    color: #ffd700;
+    opacity: 1;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+    transform: translateY(-1px);
+  }
+
+  /* Космічна помилка */
+  .cosmic-error {
+    background: rgba(220, 20, 60, 0.1);
+    border: 1px solid rgba(220, 20, 60, 0.3);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Crimson Text', serif;
+    font-size: 0.875rem;
+    color: #dc143c;
+    text-align: center;
+    animation: errorPulse 2s infinite ease-in-out;
+    backdrop-filter: blur(10px);
+  }
+
+  @keyframes errorPulse {
+    0%,
+    100% {
+      opacity: 0.8;
+      box-shadow: 0 0 10px rgba(220, 20, 60, 0.1);
+    }
+    50% {
+      opacity: 1;
+      box-shadow: 0 0 20px rgba(220, 20, 60, 0.3);
+    }
+  }
+
+  /* Стилі для заголовків форм */
+  .enchantment-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 15px currentColor;
+  }
+
+  .enchantment-subtitle {
+    font-family: 'Crimson Text', serif;
+    font-size: 0.875rem;
+    color: #e8d5c7;
+    opacity: 0.8;
+    font-style: italic;
+  }
+
+  /* Нотатки форм */
+  .academy-note,
+  .sanctum-note {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(123, 104, 238, 0.2);
+  }
+
+  .note-text {
+    font-family: 'Crimson Text', serif;
+    font-size: 0.75rem;
+    color: #e8d5c7;
+    opacity: 0.7;
+    text-align: center;
+    line-height: 1.4;
+    font-style: italic;
+  }
+
+  .note-author {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    color: #ffd700;
+    text-align: center;
+    opacity: 0.8;
+    margin-top: 0.5rem;
+  }
+}
+/* ВИПРАВЛЕННЯ ДЛЯ КНОПОК АВТОРИЗАЦІЇ */
+.registration-form button[type='submit'],
+.login-form button[type='submit'] {
+  pointer-events: auto !important;
+  position: relative !important;
+  z-index: 1000 !important;
+  cursor: pointer !important;
+}
+
+.spell-panel form {
+  pointer-events: auto !important;
+}
+
+.auth-realm {
+  pointer-events: auto !important;
+}
+
+.auth-realm * {
+  pointer-events: auto !important;
+}
